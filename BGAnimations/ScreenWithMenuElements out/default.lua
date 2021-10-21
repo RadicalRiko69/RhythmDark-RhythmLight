@@ -7,18 +7,23 @@ local bg = Def.ActorFrame{
 		};
 		  Def.ActorFrame {
 			  LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/out/scan")) .. {
-				OnCommand=cmd(zoom,0.7;x,SCREEN_CENTER_X-220;y,SCREEN_CENTER_Y-500;diffusealpha,1;linear,3;y,SCREEN_CENTER_Y+100);
+				OnCommand=cmd(zoom,0.7;x,SCREEN_CENTER_X-220;y,SCREEN_CENTER_Y-500;diffusealpha,1;linear,1;y,SCREEN_CENTER_Y+100);
 			  };
 			  LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/out/fence")) .. {
 				OnCommand=cmd(zoom,0.25;x,SCREEN_CENTER_X-440;y,SCREEN_CENTER_Y-240;diffusealpha,0.25);
 			  };
 		  };
 	};
-	LoadActor("loading")..{
+	LoadActor(THEME:GetPathS("","gameplay/loading (loop)"))..{
 		StartTransitioningCommand = function(self)
 				self:play();
-				self:hibernate(3);
+				self:hibernate(0.25);
 				SOUND:StopMusic();
+		end;
+	};
+	LoadActor(THEME:GetPathS("","gameplay/out"))..{
+		StartTransitioningCommand=function(self)
+			self:play();
 		end;
 	};
 	--ARMY OF LIGHTS

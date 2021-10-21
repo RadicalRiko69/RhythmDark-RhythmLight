@@ -1,224 +1,220 @@
 local bg = Def.ActorFrame{
-	Def.ActorFrame{
-		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;diffusealpha,1;zoom,1);
-		OnCommand=cmd(linear,0.25;diffusealpha,0);
-		Def.Quad {
-			InitCommand=cmd(Center;zoomto,SCREEN_WIDTH*500,SCREEN_HEIGHT*500;diffuse,Color("Black");linear,1;diffusealpha,1);
-		};
-		  Def.ActorFrame {
-			  LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/out/fence")) .. {
-				OnCommand=cmd(zoom,0.25;x,SCREEN_CENTER_X-440;y,SCREEN_CENTER_Y-240;diffusealpha,0.25);
-			  };
-		  };
+	Def.Quad {
+		OffCommand=cmd(Center;zoomto,SCREEN_WIDTH*500,SCREEN_HEIGHT*500;diffuse,Color("Black");linear,0.25;diffusealpha,1);
 	};
-	LoadActor(THEME:GetPathS("","gameplay/in"))..{
-		OnCommand=function(self)
-			self:play();
-		end;
+	Def.ActorFrame {
+		LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/out/scan")) .. {
+		  OnCommand=cmd(zoom,0.7;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-500;diffusealpha,0);
+		  OffCommand=cmd(linear,0.25;diffusealpha,1;linear,1;y,SCREEN_CENTER_Y+500);
+		};
+		LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/out/fence")) .. {
+		  OnCommand=cmd(zoom,0.25;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;diffusealpha,0);
+		  OffCommand=cmd(linear,0.25;diffusealpha,0.25);
+		};
 	};
 	--ARMY OF LIGHTS
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y+300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y-300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-303);
 			self:y(SCREEN_CENTER_Y);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+303);
 			self:y(SCREEN_CENTER_Y);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-151.5);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-455);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+455);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-455);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+455);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+151.5);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-151.5);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+151.5);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-303);
 			self:y(SCREEN_CENTER_Y-300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+303);
 			self:y(SCREEN_CENTER_Y+300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-303);
 			self:y(SCREEN_CENTER_Y+300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+303);
 			self:y(SCREEN_CENTER_Y-300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/light"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	--ARMY OF FRAMES
@@ -226,217 +222,217 @@ local bg = Def.ActorFrame{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y+300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y-300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-303);
 			self:y(SCREEN_CENTER_Y);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+303);
 			self:y(SCREEN_CENTER_Y);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-151.5);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-455);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+455);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-455);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+455);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+151.5);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-151.5);
 			self:y(SCREEN_CENTER_Y-150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+151.5);
 			self:y(SCREEN_CENTER_Y+150);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-303);
 			self:y(SCREEN_CENTER_Y-300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+303);
 			self:y(SCREEN_CENTER_Y+300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X-303);
 			self:y(SCREEN_CENTER_Y+300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	Def.Sprite{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X+303);
 			self:y(SCREEN_CENTER_Y-300);
-			self:zoom(0.3);
+			self:zoom(0);
 		end;
-		StartTransitioningCommand = function(self)
+		OffCommand = function(self)
 				self:Load(THEME:GetPathB("ScreenWithMenuElements","out/square"));
 				self:decelerate(0.25);
-				self:zoom(0);
+				self:zoom(0.3);
 		end;
 	};
 	LoadActor(THEME:GetPathB("ScreenWithMenuElements","background/emblem"))..{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y);
-			self:diffusealpha(1);
-			self:zoom(0.15);
-		end;
-		StartTransitioningCommand = function(self)
-			self:decelerate(0.25);
-			self:zoom(1);
 			self:diffusealpha(0);
+			self:zoom(1);
+		end;
+		OffCommand = function(self)
+			self:decelerate(0.25);
+			self:zoom(0.15);
+			self:diffusealpha(1);
 		end;
 	};
 };

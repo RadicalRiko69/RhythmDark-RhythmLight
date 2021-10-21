@@ -245,5 +245,11 @@ else
 	};
 end
 
+t[#t+1] = LoadActor("out")..{
+	InitCommand=cmd(hibernate,5);
+	OnCommand=cmd(hibernate,5);
+	OffCommand=cmd(hibernate,5);
+	StartTransitioningCommand=cmd(hibernate,5);
+};
 
 return t
