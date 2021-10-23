@@ -299,13 +299,9 @@ local t = Def.ActorFrame {
 			children = LoadPlayerStuff(PLAYER_2);
 		};
 		-- sounds
-		LoadActor( THEME:GetPathS("Common","start") )..{
+		LoadActor( THEME:GetPathS("Common","Start") )..{
 			IsAction= true,
 			StartButtonMessageCommand=cmd(play);
-		};
-		LoadActor( THEME:GetPathS("Common","cancel") )..{
-			IsAction= true,
-			BackButtonMessageCommand=cmd(play);
 		};
 		LoadActor( THEME:GetPathS("Common","value") )..{
 			IsAction= true,

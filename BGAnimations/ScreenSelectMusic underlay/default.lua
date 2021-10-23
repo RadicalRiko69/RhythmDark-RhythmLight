@@ -7,14 +7,20 @@ if not GAMESTATE:IsCourseMode() then
 		local height = Jacket:GetHeight();
 		
 		if song then
-			if song:HasJacket() then
+			if song:HasBackground() then
+				Jacket:visible(true);
+				Jacket:Load(song:GetBackgroundPath());
+				Jacket:scaletoclipped(854,480);
+				Jacket:fadeleft(0.25);
+				Jacket:faderight(0.25);
+			elseif song:HasJacket() then
 				Jacket:visible(true);
 				Jacket:Load(song:GetJacketPath());
 				Jacket:scaletoclipped(1200,1200);
-			else
+			elseif song:HasBanner() then
 				Jacket:visible(true);
 				Jacket:Load(song:GetBannerPath());
-				Jacket:scaletoclipped(1580,720);
+				Jacket:scaletoclipped(1880,720);
 			end;
 		else
 			Jacket:visible(false);
@@ -22,8 +28,9 @@ if not GAMESTATE:IsCourseMode() then
 		
 	end;
 	t[#t+1] = Def.ActorFrame {
-		InitCommand=cmd(x,SCREEN_CENTER_X+100;y,SCREEN_CENTER_Y;diffusealpha,0.25;SetUpdateFunction,JacketUpdate);
-		OnCommand=cmd(x,SCREEN_CENTER_X+100;sleep,3;linear,0.25;diffusealpha,0.25;accelerate,3.25;x,SCREEN_CENTER_X-100;diffusealpha,0;queuecommand,"On");
+		InitCommand=cmd(x,SCREEN_CENTER_X+50;y,SCREEN_CENTER_Y;diffusealpha,0.75;SetUpdateFunction,JacketUpdate);
+		OnCommand=cmd(x,SCREEN_CENTER_X+50;sleep,3;linear,0.25;diffusealpha,0.75;accelerate,3.25;x,SCREEN_CENTER_X-50;diffusealpha,0;queuecommand,"Right");
+		RightCommand=cmd(x,SCREEN_CENTER_X-50;sleep,3;linear,0.25;diffusealpha,0.75;accelerate,3.25;x,SCREEN_CENTER_X+50;diffusealpha,0;queuecommand,"On");
 		OffCommand=cmd(diffusealpha,0);
 		Def.Sprite {
 			Name="Jacket";

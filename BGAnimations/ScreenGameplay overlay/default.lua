@@ -88,7 +88,11 @@ elseif style == "TwoPlayersTwoSides" or style == "OnePlayerOneSide" then
 				
 				if GAMESTATE:IsHumanPlayer(pn) == true then
 					if name=="" and SCREENMAN:GetTopScreen():GetName() ~= "ScreenDemonstration" then
-						self:settext("Player");
+						if pn ==PLAYER_1 then
+							self:settext("Player 1");
+						else
+							self:settext("Player 2");
+						end
 					else
 						self:settext( name );
 					end
@@ -197,7 +201,11 @@ else
 			
 			if GAMESTATE:IsHumanPlayer(pn) == true then
 				if name=="" and SCREENMAN:GetTopScreen():GetName() ~= "ScreenDemonstration" then
-					self:settext("Player");
+					if pn ==PLAYER_1 then
+						self:settext("Player 1");
+					else
+						self:settext("Player 2");
+					end
 				else
 					self:settext( name );
 				end
