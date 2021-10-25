@@ -73,8 +73,24 @@ return Def.ActorFrame{
 	LoadActor("begin") .. {
 		InitCommand=cmd(x,-LIFEBAR_WIDTH/2;horizalign,right;zoom,0.75;);
 	};
-	
-	
+	LoadFont("_@dfghsgothic-w9 25px") .. {
+		InitCommand=cmd(x,-LIFEBAR_WIDTH/2;zoom,0.45;uppercase,true;shadowlength,1);
+		
+		--Flip the score back around and change alignment if player 2
+		OnCommand=function(self)
+			if player == PLAYER_2 then
+				self:x(100);
+				self:zoomx(-.45);
+			else
+				self:x(-100);
+				self:zoomx(.45);
+			end;
+		end;
+		ComboChangedMessageCommand=function(self)
+			local PSS = STATSMAN:GetCurStageStats():GetPlayerStageStats(player);
+			self:settext(scorecap(PSS:GetScore()));
+		end;
+	};	
 	LoadActor("tip") .. {	
 		InitCommand=cmd(valign,0.5;y,6;zoom,0.5;blend,Blend.Add;);
 		LifeChangedMessageCommand=function(self,params)

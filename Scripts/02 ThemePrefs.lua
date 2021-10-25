@@ -30,10 +30,10 @@ local Prefs =
 		Choices = { OptionNameString('Many'), OptionNameString('Few') },
 		Values = { true, false }
 	},
-	LongFail =
+	SampleMusicLoops =
 	{
 		Default = false,
-		Choices = { OptionNameString('Short'), OptionNameString('Long') },
+		Choices = { OptionNameString('No'), OptionNameString('Yes') },
 		Values = { false, true }
 	},
 	NotePosition =

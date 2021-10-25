@@ -69,6 +69,41 @@ elseif style == "TwoPlayersTwoSides" or style == "OnePlayerOneSide" then
 	    		end;
 		    end;
 		};
+		t[#t+1] = LoadFont("_@dfghsgothic-w9 25px")..{
+			InitCommand=function(self)
+				if pn == PLAYER_1 then
+					self:horizalign(right);
+					self:x(xPos-width/2+220);
+					self:y(45);
+					self:zoom(0.45);
+					self:skewx(-0.2);
+				else
+					self:horizalign(left);
+					self:x(xPos+width/2-220);
+					self:y(45);
+					self:zoom(0.45);
+					self:skewx(-0.2);
+				end;
+			end;
+			OnCommand=cmd(playcommand,"Change");
+			JudgmentMessageCommand=cmd(playcommand,"Change");
+			ChangeCommand=function(self)
+			self:stoptweening()
+				local PSS = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn);
+						local total = PSS:GetCurrentPossibleDancePoints();
+						local current = PSS:GetActualDancePoints();	
+							if total == 0 then
+								value = 0
+							else
+								value = math.floor(current/total*10000)/100
+								if value < 0 then
+									value = 0
+									self:settext("0%");	
+								end
+							end;
+						self:settext(value.."%");				
+			end;
+		};
 		t[#t+1] = LoadFont("_@dfghsgothic-w9 25px") .. {
 			InitCommand=cmd(maxwidth,580;y,12;zoom,0.45;shadowlength,1;skewx,-0.2);
 			OnCommand=function(self)
@@ -182,6 +217,41 @@ else
     		end;
 	    end;
 	};
+	t[#t+1] = LoadFont("_@dfghsgothic-w9 25px")..{
+		InitCommand=function(self)
+			if pn == PLAYER_1 then
+				self:horizalign(right);
+				self:x(xPos-width/2+444);
+				self:y(45);
+				self:zoom(0.45);
+				self:skewx(-0.2);
+			else
+				self:horizalign(left);
+				self:x(xPos+width/2-444);
+				self:y(45);
+				self:zoom(0.45);
+				self:skewx(-0.2);
+			end;
+		end;
+		OnCommand=cmd(playcommand,"Change");
+		JudgmentMessageCommand=cmd(playcommand,"Change");
+		ChangeCommand=function(self)
+		self:stoptweening()
+			local PSS = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn);
+					local total = PSS:GetCurrentPossibleDancePoints();
+					local current = PSS:GetActualDancePoints();	
+						if total == 0 then
+							value = 0
+						else
+							value = math.floor(current/total*10000)/100
+							if value < 0 then
+								value = 0
+								self:settext("0%");	
+							end
+						end;
+					self:settext(value.."%");				
+		end;
+	};
 	t[#t+1] = LoadFont("_@dfghsgothic-w9 25px") .. {
 		InitCommand=cmd(maxwidth,1200;y,12;zoom,0.45;shadowlength,1;skewx,-0.2);
 		OnCommand=function(self)
@@ -252,6 +322,23 @@ else
 	  end;
 	};
 end
+
+t[#t+1] = Def.ActorFrame{
+	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-10;zoom,0.45);
+	-- CURRENT SONG NAME
+LoadFont("_enigmatic unicode 20px")..{	
+	InitCommand=cmd(maxwidth,1000;draworder,99999);
+	CurrentSongChangedMessageCommand=function(self)
+		local song = GAMESTATE:GetCurrentSong()
+		if song then
+			self:settext(song:GetDisplayFullTitle().."  -  "..song:GetDisplayArtist());
+			self:diffusealpha(1);
+		else
+			self:diffusealpha(0);
+		end;
+	end;
+	};
+};
 
 t[#t+1] = LoadActor("out")..{
 	InitCommand=cmd(hibernate,5);
