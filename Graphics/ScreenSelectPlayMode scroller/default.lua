@@ -61,6 +61,8 @@ t[#t+1] = Def.ActorFrame {
 		GainFocusCommand=cmd(finishtweening;x,320+16;decelerate,0.45;diffusealpha,1;x,320);
 		LoseFocusCommand=cmd(finishtweening;x,320;accelerate,0.4;diffusealpha,0;x,320-32;diffusealpha,0);
 	};
+	LoadActor(THEME:GetPathB("ScreenTitleMenu","change"))..{
+	};
 	Def.Quad {
 		InitCommand=cmd(horizalign,left;y,20;zoomto,320,2;diffuse,icon_color;diffusealpha,0;fadeleft,0.35;faderight,0.35);
 		GainFocusCommand=cmd(stoptweening;linear,0.5;diffusealpha,1);

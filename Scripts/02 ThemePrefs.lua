@@ -6,11 +6,11 @@ end
 -- Example usage of new system (not fully implemented yet)
 local Prefs =
 {
-	AutoSetStyle =
+	TeamPreference =
 	{
-		Default = false,
-		Choices = { OptionNameString('Off'), OptionNameString('On') },
-		Values = { false, true }
+		Default = "Dark",
+		Choices = { "Dark", "Light" },
+		Values = { "Dark", "Light" }
 	},
 	GameplayShowStepsDisplay = 
 	{

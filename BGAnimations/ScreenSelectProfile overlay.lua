@@ -303,9 +303,11 @@ local t = Def.ActorFrame {
 			IsAction= true,
 			StartButtonMessageCommand=cmd(play);
 		};
-		LoadActor( THEME:GetPathS("Common","value") )..{
+		--[[LoadActor( THEME:GetPathS("Common","value") )..{
 			IsAction= true,
 			DirectionButtonMessageCommand=cmd(play);
+		};--]]
+		LoadActor(THEME:GetPathB("ScreenTitleMenu","change"))..{
 		};
 	};
 };

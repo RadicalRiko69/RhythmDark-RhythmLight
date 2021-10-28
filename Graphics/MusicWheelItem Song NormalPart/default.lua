@@ -36,7 +36,7 @@ return Def.ActorFrame{
 			end;
 		end;
 	};
-	LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/jacket frame"))..{
+	LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/jackets"))..{
 		InitCommand=cmd(zoom,0.381);
 	};
 };

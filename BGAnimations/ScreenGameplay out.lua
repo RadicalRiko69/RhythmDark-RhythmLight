@@ -1,12 +1,26 @@
-local bg = Def.ActorFrame{
-	Def.Quad{
+local t = Def.ActorFrame {};
+t[#t+1] = Def.Quad{
 		InitCommand=cmd(FullScreen;diffuse,color("0,0,0,0"));
-		OnCommand=cmd(sleep,5;linear,2;diffusealpha,0);
-	};
-	LoadActor(THEME:GetPathS("","gameplay/out"))..{
-		OnCommand=cmd(sleep,5;queuecommand,"PlaySound");
-		PlaySoundCommand=cmd(play);
-	};
+		OnCommand=cmd(diffusealpha,0;hibernate,5);	
 };
 
-return bg
+t[#t+1] = LoadActor(THEME:GetPathB("ScreenGameplay","overlay/out"))..{
+	OffCommand=function(self)
+		self:hibernate(5);
+	end;
+};
+
+t[#t+1] = Def.Sound{
+	OnCommand=cmd(sleep,5;queuecommand,"Play");
+	PlayCommand=function(self)
+	  if ThemePrefs.Get("TeamPreference") == "Dark" then
+		self:load(THEME:GetPathS("","gameplay/Dark/out"));
+		self:play();
+	  elseif ThemePrefs.Get("TeamPreference") == "Light" then
+		self:load(THEME:GetPathS("","gameplay/Light/out"));
+		self:play();
+	  end;
+	end;
+};
+
+return t;

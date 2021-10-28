@@ -7,6 +7,8 @@ return Def.ActorFrame {
 		GainFocusCommand=cmd(stoptweening;decelerate,0.1;zoomto,256,26;diffusealpha,1);
 		LoseFocusCommand=cmd(stoptweening;accelerate,0.1;zoomto,SCREEN_WIDTH,0;diffusealpha,0);
 	};
+	LoadActor(THEME:GetPathB("ScreenTitleMenu","change"))..{
+	};
 	LoadFont("Common Normal") .. {
 		Text=THEME:GetString("ScreenTitleMenu",gc:GetText());
 		OnCommand=cmd(shadowlength,1);

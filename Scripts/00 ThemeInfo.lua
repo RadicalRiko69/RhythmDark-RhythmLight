@@ -1,6 +1,6 @@
 -- theme identification:
 themeInfo = {
-	ProductCode = "SSC-501",
-	Name = "StepMania 5 Default",
-	Date = "20120108",
+	ProductCode = "TS-2021",
+	Name = "Rhythm Dark/Rhythm Light",
+	Date = "20211510",
 }
