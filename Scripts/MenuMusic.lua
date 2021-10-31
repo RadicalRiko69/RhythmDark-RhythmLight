@@ -7,7 +7,7 @@ do
 		};
 		result = {
 			["Dark"] = "valkyrie (loop).ogg";
-			["Light"] = "_light (loop).ogg";
+			["Light"] = "purpose (loop).ogg";
 		};
 		value = {
 			["Dark"] = "click.ogg";

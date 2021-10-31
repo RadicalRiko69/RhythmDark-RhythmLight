@@ -1,12 +1,9 @@
-local t = Def.ActorFrame{};
-
--- todo: add event mode indicators and such
-if GAMESTATE:IsEventMode() then
-	t[#t+1] = LoadFont("Common Large")..{
-		Text=Screen.String("EventMode");
-		InitCommand=cmd(CenterX;y,SCREEN_BOTTOM-72;zoom,0.675;diffuse,Color.Yellow;strokecolor,ColorDarkTone(Color.Yellow);shadowlength,1);
-		OnCommand=cmd(glowshift;textglowmode,'TextGlowMode_Inner';effectperiod,2);
+return Def.ActorFrame {
+	LoadActor(THEME:GetPathG("ScreenTitleMenu","logo"))..{
+	  OnCommand= cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y);
+	},
+	LoadActor(THEME:GetPathG("","press"))..{
+	  InitCommand=cmd(Center);
+	  OnCommand=cmd(zoom,0.45; addy,150;diffuseshift; effectperiod, 2; effectcolor1, 1,1,1,1; effectcolor2, 1,1,1,0);
 	};
-end;
-
-return t;
+};

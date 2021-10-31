@@ -21,11 +21,16 @@ local t = Def.ActorFrame {
 	end;
 }
 
-t[#t+1] = Def.ActorFrame{
-	LoadActor("bg diff_12")..{
-		InitCommand=cmd(zoom,0.9;rotationz,90);
-	};
-}
+t[#t+1] = Def.Sprite{
+	InitCommand=cmd(zoom,0.9;rotationz,90);
+	OnCommand=function(self)
+		if ThemePrefs.Get("TeamPreference") == "Dark" then
+		  	self:Load(THEME:GetPathB("ScreenSelectMusic","overlay/DifficultyList/bg diff_12"));
+		elseif ThemePrefs.Get("TeamPreference") == "Light" then
+			self:Load(THEME:GetPathB("ScreenSelectMusic","overlay/DifficultyList/gold diff_12"));
+		end;
+	end;
+   };
 
 t[#t+1] = Def.ActorFrame{
 	Def.StepsDisplayList {

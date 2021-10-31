@@ -335,6 +335,26 @@ t[#t+1] = Def.ActorFrame{
   LoadActor(NAME);
 };
 
+t[#t+1] = LoadActor("sushi")..{
+	InitCommand=cmd(Center;zoom,0.5);
+	OnCommand=cmd(visible,GAMESTATE:GetCoinMode() == "CoinMode_Pay";queuecommand,"Zoom");
+	ZoomCommand=cmd(decelerate,0.05;zoom,1;decelerate,0.05;zoom,0.75;queuecommand,"Zoom");
+};
+
+t[#t+1] = LoadActor("bitch")..{
+	InitCommand=cmd(Center;zoom,0.5);
+	OnCommand=cmd(visible,GAMESTATE:GetCoinMode() == "CoinMode_Pay");
+};
+
+-- if you use paymode
+if (GAMESTATE:GetCoinMode() == "CoinMode_Pay") then
+	t[#t+1] = LoadActor("earrape (loop)")..{
+		OnCommand=cmd(queuecommand,"PlaySound");
+		PlaySoundCommand=cmd(play);
+		OffCommand=cmd(stop);
+	};	--Music
+end
+
 t[#t+1] = LoadActor("out")..{
 	InitCommand=cmd(hibernate,5);
 	OnCommand=cmd(hibernate,5);

@@ -22,7 +22,7 @@ end;
 
 local function genPlayerFrame(player, xPos)
 	return Def.ActorFrame {
-		InitCommand=cmd(x,xPos;y,SCREEN_CENTER_Y-80;diffusealpha,0);
+		InitCommand=cmd(x,xPos;y,SCREEN_CENTER_Y-110;diffusealpha,0);
 		OnCommand=cmd(decelerate,0.5;diffusealpha,1);
 		LoadActor("border")..{
 		    InitCommand=cmd(zoomx,0.54;zoomy,0.55;addx,-0.65);

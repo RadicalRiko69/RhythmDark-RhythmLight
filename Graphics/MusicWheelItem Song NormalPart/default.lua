@@ -11,7 +11,9 @@ return Def.ActorFrame{
 	--[[LoadActor(THEME:GetPathG("MusicWheelItem Song","OverPart"))..{
 		InitCommand=cmd(addy,(scah/2)+8;rotationx,180;diffusealpha,0.5;croptop,ctop;fadetop,ftop);
 	};]]
-
+	LoadActor(THEME:GetPathB("ScreenSelectMusic","overlay/jacket back"))..{
+		InitCommand=cmd(zoom,0.381);
+	};
 	Def.Sprite{		--Normal song banner item
 		Name="SongBanner";
 		InitCommand=cmd(scaletoclipped,scaw,scah);
@@ -20,19 +22,20 @@ return Def.ActorFrame{
 			if song then
 				local path = song:GetJacketPath();
 				if path then
-					self:Load(path)
+					self:Load(path);
+					self:scaletoclipped(204,204);
 					--self:LoadFromCached("Jacket",path);
 				else
 					path = song:GetBannerPath();
 					if path then
-						self:Load(path)
+						self:Load(path);
 						--self:LoadFromCached("Banner",path);
 					else
-						self:Load(THEME:GetPathG("Common","fallback banner"))
+						self:Load(THEME:GetPathG("Common","fallback banner"));
 					end;
 				end;
 			else
-				self:Load(THEME:GetPathG("Common fallback","banner")) --// load the fallback banner if we panic
+				self:Load(THEME:GetPathG("Common fallback","banner")); --// load the fallback banner if we panic
 			end;
 		end;
 	};

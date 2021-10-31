@@ -100,7 +100,7 @@ if not GAMESTATE:IsCourseMode() then
 			else
 				Jacket:visible(true);
 				Jacket:Load(song:GetBannerPath());
-				Jacket:scaletoclipped(110,110);
+				Jacket:scaletoclipped(110,50);
 			end;
 		else
 			Jacket:visible(false);

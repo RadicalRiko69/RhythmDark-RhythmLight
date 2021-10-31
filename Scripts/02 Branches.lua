@@ -17,10 +17,8 @@ function SMOnlineScreen()
 end
 
 function SelectMusicOrCourse()
-	if IsNetSMOnline() then
-		return "ScreenNetSelectMusic"
-	elseif GAMESTATE:IsCourseMode() then
-		return "ScreenSelectCourse"
+	if GAMESTATE:GetCoinMode() == "CoinMode_Pay" then
+		return "ScreenNoPay"
 	else
 		return "ScreenSelectMusic"
 	end
@@ -40,7 +38,7 @@ Branch = {
 		if GAMESTATE:GetCoinMode() == 'CoinMode_Home' then
 			return Branch.TitleMenu()
 		else
-			return "ScreenLogo"
+			return "ScreenTitleJoin"
 		end
 	end,
 	NoiseTrigger = function()
@@ -51,15 +49,17 @@ Branch = {
 		-- home mode is the most assumed use of sm-ssc.
 		if GAMESTATE:GetCoinMode() == "CoinMode_Home" then
 			return "ScreenTitleMenu"
+		elseif GAMESTATE:GetCoinMode() == "CoinMode_Free" then
+			return "ScreenTitleJoin"
 		end
 		-- arcade junk:
 		if GAMESTATE:GetCoinsNeededToJoin() > GAMESTATE:GetCoins() then
 			-- if no credits are inserted, don't show the Join screen. SM4 has
 			-- this as the initial screen, but that means we'd be stuck in a
 			-- loop with ScreenInit. No good.
-			return "ScreenTitleJoin"
+			return "ScreenNoPay"
 		else
-			return "ScreenTitleJoin"
+			return "ScreenNoPay"
 		end
 	end,
 	AfterTitleMenu = function()
@@ -116,25 +116,25 @@ Branch = {
 	AfterSelectProfile = function()
 		if ( THEME:GetMetric("Common","AutoSetStyle") == true ) then
 			-- use SelectStyle in online...
-			return IsNetConnected() and "ScreenSelectStyle" or "ScreenSelectPlayMode"
+			return IsNetConnected() and "ScreenSelectStyle" or "ScreenSelectMusic"
 		else
 			return "ScreenSelectStyle"
 		end
 	end,
 	AfterProfileLoad = function()
-		return "ScreenSelectPlayMode"
+		return "ScreenSelectMusic"
 	end,
 	AfterProfileSave = function()
 		-- Might be a little too broken? -- Midiman
 		if GAMESTATE:IsEventMode() then
 			return SelectMusicOrCourse()
 		elseif STATSMAN:GetCurStageStats():AllFailed() then
-			return GameOverOrContinue()
+			return Branch.TitleMenu()
 		elseif GAMESTATE:GetSmallestNumStagesLeftForAnyHumanPlayer() == 0 then
 			if not GAMESTATE:IsCourseMode() then
 				return "ScreenEvaluationSummary"
 			else
-				return GameOverOrContinue()
+				return Branch.TitleMenu()
 			end
 		else
 			return SelectMusicOrCourse()
@@ -243,17 +243,17 @@ Branch = {
 		return IsNetConnected() and "ScreenTitleMenu" or "ScreenTitleMenu"
 	end,
  	AfterSaveSummary = function()
-		return GameOverOrContinue()
+		return Branch.TitleMenu()
 --		[[ Enable when Finished ]]
 -- 		return GAMESTATE:AnyPlayerHasRankingFeats() and "ScreenNameEntryTraditional" or "ScreenGameOver"
 	end,
 	AfterContinue = function()
 		if GAMESTATE:GetNumPlayersEnabled() == 0 then
-			return "ScreenGameOver"
+			return Branch.TitleMenu()
 		end
 
 		if STATSMAN:GetStagesPlayed() == 0 then
-			return "ScreenSelectStyle"
+			return "ScreenSelectProfile"
 		end
 
 		return "ScreenProfileLoad"
