@@ -21,8 +21,8 @@ t[#t+1] = Def.ActorFrame {
 t[#t+1] = Def.ActorFrame {
 	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;queuecommand,"Loop");
 	LoopCommand=cmd(linear,2;diffusealpha,1;linear,2;diffusealpha,0;queuecommand,"Loop");
-	LoadActor("emblem") .. {
-		OnCommand=cmd(diffusealpha,1;zoom,0.35);
+	LoadActor("spider") .. {
+		OnCommand=cmd(diffusealpha,1;zoom,0.8);
 	};
   };
 

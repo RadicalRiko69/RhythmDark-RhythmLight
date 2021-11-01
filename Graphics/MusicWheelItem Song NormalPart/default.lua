@@ -30,12 +30,12 @@ return Def.ActorFrame{
 					if path then
 						self:Load(path);
 						--self:LoadFromCached("Banner",path);
-					else
-						self:Load(THEME:GetPathG("Common","fallback banner"));
+					elseif ThemePrefs.Get("TeamPreference") == "Dark" then
+						self:Load(THEME:GetPathG("","silver")); --// load the fallback banner if we panic
+					elseif ThemePrefs.Get("TeamPreference") == "Light" then
+						self:Load(THEME:GetPathG("","gold")); --// load the fallback banner if we panic
 					end;
 				end;
-			else
-				self:Load(THEME:GetPathG("Common fallback","banner")); --// load the fallback banner if we panic
 			end;
 		end;
 	};

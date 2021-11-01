@@ -436,7 +436,7 @@ local bg = Def.ActorFrame{
 				self:zoom(0.3);
 		end;
 	};
-	LoadActor(THEME:GetPathB("ScreenWithMenuElements","background/dark/emblem"))..{
+	LoadActor(THEME:GetPathB("ScreenWithMenuElements","background/dark/spider"))..{
 		InitCommand=function(self)
 			self:x(SCREEN_CENTER_X);
 			self:y(SCREEN_CENTER_Y);
@@ -445,7 +445,7 @@ local bg = Def.ActorFrame{
 		end;
 		StartTransitioningCommand = function(self)
 			self:decelerate(0.25);
-			self:zoom(0.15);
+			self:zoom(0.5);
 			self:diffusealpha(1);
 		end;
 	};
