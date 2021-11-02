@@ -21,9 +21,13 @@ if not GAMESTATE:IsCourseMode() then
 				Jacket:visible(true);
 				Jacket:Load(song:GetBannerPath());
 				Jacket:scaletoclipped(1880,720);
+			else
+				Jacket:visible(false);
+				Jacket:scaletoclipped(0,0);
 			end;
 		else
 			Jacket:visible(false);
+			Jacket:scaletoclipped(0,0);
 		end;
 		
 	end;
@@ -56,6 +60,9 @@ if not GAMESTATE:IsCourseMode() then
 				Jacket:visible(true);
 				Jacket:Load(song:GetBannerPath());
 				Jacket:scaletoclipped(488,172);
+			else
+				Jacket:visible(false);
+				Jacket:scaletoclipped(0,0);
 			end;
 		else
 			Jacket:visible(false);
