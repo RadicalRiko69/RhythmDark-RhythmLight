@@ -14,7 +14,7 @@ local function GetPosition(pn)
 	local strPlayer = (NumPlayers == 1) and "OnePlayer" or "TwoPlayers";
 	local strSide = (NumSides == 1) and "OneSide" or "TwoSides";
 	return THEME:GetMetric("ScreenGameplay","Player".. ToEnumShortString(pn) .. strPlayer .. strSide .."X");--]]
-	if st == "StepsType_Dance_Double" or st == "StepsType_Dance_Solo" or Center1Player then return SCREEN_WIDTH/2;
+	if st == "StepsType_Dance_Double" or st == "StepsType_Dance_Solo" or st == "StepsType_Pump_Double" or st == "StepsType_Pump_Halfdouble" or Center1Player then return SCREEN_WIDTH/2;
 	else 
 	local strPlayer = (NumPlayers == 1) and "OnePlayer" or "TwoPlayers";
 	local strSide = (NumSides == 1) and "OneSide" or "TwoSides";
