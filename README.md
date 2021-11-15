@@ -1,7 +1,7 @@
 # Rhythm Dark / Rhythm Light
 A Team Sushi Presentations Theme for SM5
 
-![alt text](https://i.imgur.com/cQoVgIU.png)
+![alt text](https://i.imgur.com/lRjSzOG.png)
 
 This theme is a public WIP and more things will be added over time, read the TO-DO list to see what currently needs to be done/is being worked on.
 The theme is based off of the legacy default theme for SM5.
@@ -17,4 +17,4 @@ DO NOT USE THIS THEME IN PUBLIC, THIS IS FOR PRIVATE USE ONLY.
 # Copyright Notices
 Copyrighted sounds and music belong to their respective owners.
 
-Mascot Characters copyrighted by Team Sushi Presentations. Illustrations by Giovanni Shawn.
+Mascot Characters copyrighted by Team Sushi Presentations. Illustrations by [@pureisi](https://twitter.com/pureisi).
