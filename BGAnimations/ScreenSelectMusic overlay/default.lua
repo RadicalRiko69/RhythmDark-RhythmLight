@@ -39,7 +39,7 @@ if not GAMESTATE:IsCourseMode() then
 	t[#t+1] = Def.ActorFrame {
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y-50;diffusealpha,0;SetUpdateFunction,JacketUpdate);
 		OffCommand=function(self)
-			self:sleep(1.25);
+			self:sleep(1.8);
 			self:diffusealpha(1);
 		end;
 		Def.Sprite {
@@ -61,7 +61,7 @@ t[#t+1] = Def.ActorFrame{
 };
 
 t[#t+1] = Def.Quad {
-	OffCommand=cmd(Center;zoomto,SCREEN_WIDTH,SCREEN_HEIGHT;diffuse,Color("White");diffusealpha,0;sleep,1.25;diffusealpha,1;linear,2;diffusealpha,0);
+	OffCommand=cmd(Center;zoomto,SCREEN_WIDTH,SCREEN_HEIGHT;diffuse,Color("White");diffusealpha,0;sleep,1.8;diffusealpha,1;linear,2;diffusealpha,0);
 };
 
 return t

@@ -2,7 +2,7 @@ local t = Def.ActorFrame {};
 
 t[#t+1] = Def.ActorFrame{
 	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+150;diffusealpha,0;zoom,0.6);
-	OffCommand=cmd(sleep,1.25;diffusealpha,1);
+	OffCommand=cmd(sleep,1.8;diffusealpha,1);
 	-- CURRENT SONG NAME
 LoadFont("_enigmatic unicode 20px")..{	
 	InitCommand=cmd(x,0;y,-0;zoom,2;maxwidth,400);

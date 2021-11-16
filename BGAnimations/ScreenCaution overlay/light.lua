@@ -13,7 +13,7 @@ t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(Center);
 	Def.ActorFrame {
 		LoadActor("heaven") .. {
-			OnCommand=cmd(zoom,0.8;y,100);
+			OnCommand=cmd(zoom,0.4);
 		};
 	};
 };
@@ -36,7 +36,7 @@ t[#t+1] = Def.ActorFrame {
 -- Cppyright
 t[#t+1] = Def.ActorFrame {
 	LoadFont("_chiaro 36px") .. {
-		Text="Illustration by Giovanni Shawn\nCopyright by Team Sushi Presentations";
+		Text="Illustration by @pureisi\nCopyright by Team Sushi Presentations";
 		InitCommand=cmd(x,SCREEN_RIGHT-20;y,SCREEN_BOTTOM-20;horizalign,right);
 		OnCommand=cmd(strokecolor,Color("Black");zoom,0.4);
 	};

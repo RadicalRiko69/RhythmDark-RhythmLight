@@ -92,7 +92,7 @@ return Def.ActorFrame{
 		end;
 	};	
 	LoadActor("tip") .. {	
-		InitCommand=cmd(valign,0.5;y,6;zoom,0.5;blend,Blend.Add;);
+		InitCommand=cmd(valign,0.5;y,6;zoom,0.5);
 		LifeChangedMessageCommand=function(self,params)
 			if params.Player == player then	
 				local style = GAMESTATE:GetCurrentStyle();		

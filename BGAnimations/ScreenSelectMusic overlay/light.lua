@@ -159,14 +159,14 @@ t[#t+1] = Def.ActorFrame{
 t[#t+1] = Def.ActorFrame{
 	LoadActor(THEME:GetPathB("ScreenTitleMenu", "background/light"))..{
 		InitCommand=cmd(diffusealpha,0);
-		OffCommand=cmd(sleep,1.25;diffusealpha,1);
+		OffCommand=cmd(sleep,1.8;diffusealpha,1);
 	};
 };
 
 --Sound effects
 t[#t+1] = Def.ActorFrame{
 	LoadActor("sfx/cheer")..{
-		OffCommand=cmd(sleep,1;queuecommand,"PlaySound");
+		OffCommand=cmd(sleep,1.7;queuecommand,"PlaySound");
 		PlaySoundCommand=cmd(play);
 	};
 	LoadActor(THEME:GetPathS("","key"))..{

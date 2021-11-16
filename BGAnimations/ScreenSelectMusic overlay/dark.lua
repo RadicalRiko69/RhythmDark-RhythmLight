@@ -158,20 +158,20 @@ t[#t+1] = Def.ActorFrame{
 	},
 	LoadActor("out/get ready")..{
 		InitCommand=cmd(zoom,1;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;diffusealpha,0);
-		OffCommand=cmd(linear,0.15;diffusealpha,1;zoom,0.325;decelerate,0.8;zoom,0.2;accelerate,0.25;zoomy,0;zoomx,1);
+		OffCommand=cmd(linear,0.15;diffusealpha,1;zoom,0.325;decelerate,1;zoom,0.2;accelerate,0.25;zoomy,0;zoomx,1);
 	};
 };
 
 --Sound effects
 t[#t+1] = Def.ActorFrame{
 	LoadActor("sfx/cheer")..{
-		OffCommand=cmd(sleep,1;queuecommand,"PlaySound");
+		OffCommand=cmd(sleep,1.8;queuecommand,"PlaySound");
 		PlaySoundCommand=cmd(play);
 	};
 	LoadActor(THEME:GetPathS("","dark changing"))..{
 		CurrentSongChangedMessageCommand=cmd(play);
 	};
-	LoadActor("sfx/ready")..{
+	LoadActor("sfx/unlock")..{
 		PlaySoundCommand=cmd(play);
 		OffCommand=function(self)
 			SOUND:StopMusic();
@@ -183,7 +183,7 @@ t[#t+1] = Def.ActorFrame{
 t[#t+1] = Def.ActorFrame{
 	LoadActor(THEME:GetPathB("ScreenTitleMenu", "background/dark"))..{
 		InitCommand=cmd(diffusealpha,0);
-		OffCommand=cmd(sleep,1.25;diffusealpha,1);
+		OffCommand=cmd(sleep,1.8;diffusealpha,1);
 	};
 };
 

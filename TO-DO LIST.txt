@@ -1,6 +1,6 @@
-TO-DO (10/30/2021):
+TO-DO (11/15/2021):
 -Design ScreenEvaluation
--Commission artists to draw mascots
+-Add more wallpapers to loading screen after evaluation
 -Animate mascots
 -Use original music and sound effects (that probably won't happen...)
 -other stuff
